@@ -1,22 +1,27 @@
 @charset "utf-8";
 
 /* ==========================================================================
-   1. 手機瀏覽器閱讀版面優化 (Mobile Web Reader Layout)
+   1. 手機瀏覽器閱讀版面優化 (Mobile Web Reader Layout & Auto Reflow)
    ========================================================================== */
 html {
   font-size: 18px; /* 基準字號 18px */
+  -webkit-text-size-adjust: 100%; /* 防止 iOS 轉向時文字隨意改變大小 */
+  text-size-adjust: 100%;
 }
 
 body, .calibre {
+  width: 100%;
   max-width: 680px;
   margin: 0 auto !important;
   padding: 1rem 0.8rem !important;
+  box-sizing: border-box !important; /* 確保 padding 不會撐大寬度 */
   background-color: #ffffff;
   color: #1e293b;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
 
+  /* 文字自動斷行與自動重排核心設定 */
   white-space: normal !important;
   word-wrap: break-word !important;
   word-break: break-word !important;
@@ -149,6 +154,9 @@ h3.copybooktitle, .copybooktitle {
   padding: 0.1em 0.3em;
   border-radius: 4px;
   font-weight: 500;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .name-kai, .text-fang-song {
@@ -167,10 +175,12 @@ h3.copybooktitle, .copybooktitle {
    4. 電子書目錄頁樣式 (TOC & Catalog Layout)
    ========================================================================== */
 .container {
+  width: 100%;
   max-width: 680px;
   margin: 0 auto;
   background: #ffffff;
   padding: 1rem 0.5rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -316,7 +326,24 @@ ul.toc-list a:hover {
 }
 
 /* ==========================================================================
-   6. 其他輔助與表格樣式
+   6. 小螢幕手機與閱讀器響應式微調 (Mobile Responsive Adjustments)
+   ========================================================================== */
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 16px; /* 極小螢幕下適當降低基準字號 */
+  }
+
+  body, .calibre {
+    padding: 0.8rem 0.5rem !important;
+  }
+
+  .text {
+    text-indent: 1.8em; /* 調整縮排比例 */
+  }
+}
+
+/* ==========================================================================
+   7. 其他輔助與表格樣式
    ========================================================================== */
 .ppp {
   background-color: #f8fafc;
