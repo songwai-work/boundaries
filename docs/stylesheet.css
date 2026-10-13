@@ -142,10 +142,10 @@ h3.copybooktitle, .copybooktitle {
   font-weight: bold;
 }
 
-/* 🔑 經文引用與出處特別強調樣式（柔和黃底高亮） */
+/* 🔑 經文引用與出處特別強調樣式（柔和藍底高亮） */
 .bible-quote {
-  background-color: #fef08a;
-  color: #713f12;
+  background-color: #dbeafe;
+  color: #1e40af;
   padding: 0.1em 0.3em;
   border-radius: 4px;
   font-weight: 500;
@@ -290,10 +290,10 @@ ul.toc-list a:hover {
     color: #86efac !important;
   }
 
-  /* 深色模式下的經文高亮 */
+  /* 深色模式下的經文高亮（藏青底淺藍字） */
   .bible-quote {
-    background-color: #854d0e !important;
-    color: #fef08a !important;
+    background-color: #1e3a8a !important;
+    color: #bfdbfe !important;
   }
 
   .calibre2 {
