@@ -1,967 +1,225 @@
-._idgendropcap {
-  color: #9fa0a0;
-  float: left;
-  font-size: 2em;
-  line-height: 1.6;
-  margin-bottom: -0.262em;
-  margin-right: 0.05em;
-  margin-top: 0.003em;
+@charset "utf-8";
+
+/* ==========================================================================
+   1. 手機瀏覽器閱讀版面優化 (Mobile Web Reader Layout)
+   ========================================================================== */
+html {
+  font-size: 16px; /* 基準字號，適應手機螢幕 */
 }
-._idgendropcap1 {
-  float: left;
-  font-size: 2em;
-  line-height: 1.6;
-  margin-bottom: -0.262em;
-  margin-right: 0.05em;
-  margin-top: 0.003em;
+
+body, .calibre {
+  max-width: 680px;          /* 限制最大寬度，避免在大螢幕或橫屏時字張得太寬 */
+  margin: 0 auto !important; /* 頁面水平居中 */
+  padding: 1.2rem 1rem !important; /* 為手機兩側留出舒適的內邊距，防止文字貼邊 */
+  background-color: #ffffff;
+  color: #1e293b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
 }
-._idgenobjectattribute {
-  height: auto;
-  max-width: 100%;
-  width: 100%;
-}
-._idgenobjectattribute1 {
-  height: auto;
-  width: 15%;
-}
-._idgenobjectstyleoverride {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  margin: 0;
-  padding: 0;
-}
-.aurther {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #4c4948;
-  display: block;
-  font-family: sans-serif;
-  font-size: 1.29167em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.biao {
-  border-collapse: collapse;
-  border-spacing: 2px;
-  display: table;
-  margin-bottom: 0;
-  margin-top: 0;
-  text-indent: 0;
-  border: #000 solid 1px;
-}
-.biao1 {
-  display: table-row;
-  page-break-after: auto;
-  page-break-before: auto;
-  vertical-align: inherit;
-}
-.biao2 {
-  background-color: #e6e6e6;
-  display: table-cell;
-  text-align: inherit;
-  vertical-align: middle;
-  padding: 6px 3px;
-  border: #000 solid 1px;
-}
-.biao3 {
-  display: table-cell;
-  text-align: inherit;
-  vertical-align: middle;
-  padding: 6px 3px;
-  border: #000 solid 1px;
-}
-.biao4 {
-  background-color: #e6e6e6;
-  display: table-cell;
-  text-align: inherit;
-  vertical-align: middle;
-  padding: 9px 3px;
-  border: #000 solid 1px;
-}
-.biao5 {
-  display: table-cell;
-  text-align: inherit;
-  vertical-align: middle;
-  padding: 9px 3px;
-  border: #000 solid 1px;
-}
-.big-text {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.box-title {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.calibre {
-  -epub-hyphens: auto;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-size: 1em;
-  margin: 0 5pt;
-  padding: 0;
-}
+
 .calibre1 {
   color: inherit;
   text-decoration: none;
 }
+
 .calibre2 {
-  color: gray;
+  color: #e2e8f0;
   display: block;
-  height: 2px;
-  margin: 0.5em auto;
-  border: currentColor inset 1px;
+  height: 1px;
+  margin: 2em auto;
+  border: none;
+  border-top: 1px solid #cbd5e1;
 }
-.calibre3 {
-  display: block;
-  list-style-type: disc;
-  margin-bottom: 1em;
-  margin-right: 0;
-  margin-top: 1em;
-}
-.calibre4 {
-  display: table-column-group;
-}
-.calibre5 {
-  display: table-column;
-}
-.calibre6 {
-  display: table-row-group;
-  vertical-align: middle;
-}
-.calibre7 {
-  display: block;
-  font-size: 1em;
-  padding-left: 0;
-  padding-right: 0;
-  margin: 0 5pt;
-}
-.calibre8 {
-  display: block;
-  font-size: 2em;
-  font-weight: bold;
-  line-height: 1.2;
-  margin: 0.67em 0;
-}
-.calibre9 {
-  display: block;
-  list-style-type: decimal;
-  margin: 1em 0;
-}
-.calibre10 {
-  display: list-item;
-}
-.calibre11 {
-  display: block;
-  list-style-type: decimal;
-  margin: 0;
-}
-.charoverride {
-  color: #684900;
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-}
-.charoverride1 {
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-}
-.charoverride2 {
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-}
-.charoverride3 {
-  color: #727171;
-  font-family: serif;
-  font-style: normal;
-  font-weight: normal;
-}
-.charoverride4 {
-  color: #c1c2c2;
-  font-family: serif;
-  font-style: normal;
-  font-weight: normal;
-}
-.charoverride5 {
-  color: #c9caca;
-  font-family: serif;
-  font-style: normal;
-  font-weight: normal;
-}
-.charoverride6 {
-  color: #5e5d5c;
-  font-family: serif;
-  font-style: normal;
-  font-weight: normal;
-}
-.charoverride7 {
-  color: #c7c8c8;
-  font-family: serif;
-  font-style: normal;
-  font-weight: normal;
-}
-.charoverride8 {
-  color: #4c4948;
-  font-family: serif;
-  font-style: normal;
-  font-weight: bold;
-}
-.charoverride9 {
-  color: #a2a2a2;
-  font-family: serif;
-  font-style: normal;
-  font-weight: bold;
-}
-.charoverride10 {
-  font-style: normal;
-  font-weight: normal;
-}
-.charoverride11 {
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-}
-.con {
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-}
-.con-one {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 1.29167em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.con-one1 {
-  color: #9fa0a0;
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-}
-.con-title {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.con-two {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #9fa0a0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.con-two1 {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #9fa0a0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 1.1em;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.copybooktitle {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 1.29167em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.copytext {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.ex-text {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.first-big-one {
-  color: #727171;
-}
-.first-big-one1 {
-  color: #727171;
-  font-size: 1em;
-}
-.form-titlte {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.from {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.from1 {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.from2 {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.h {
-  -epub-text-align-last: center;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #727171;
-  display: block;
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: underline;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
+
+/* ==========================================================================
+   2. 標題與章節層級 (Headings & Titles)
+   ========================================================================== */
 .h1 {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #898989;
-  display: block;
+  color: #64748b;
   font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.4;
   text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
+  margin: 1.5em 0 0.5em 0;
 }
-.h1-none {
-  -epub-hyphens: none;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 2em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  line-height: 1.2;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: left;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
+
 .h2-math {
-  -epub-text-combine: horizontal;
   font-family: serif;
-  font-size: 1.83333em;
-  font-style: normal;
+  font-size: 1.4rem;
   font-weight: bold;
-  line-height: 1.2;
 }
+
 .h2-name {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
   font-family: sans-serif;
-  font-size: 1.29167em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 1.4;
   text-align: center;
-  text-decoration: none;
+  color: #0f172a;
+  margin: 0.5em 0 1.8em 0;
+}
+
+/* 時間導航標題 (例如：早上 6:00) */
+.con-title {
+  font-family: sans-serif;
+  font-size: 1.15rem;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: left;
+  color: #334155;
+  margin-top: 2.2em;
+  margin-bottom: 0.8em;
   text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
 }
-.img {
-  -epub-hyphens: none;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
+
+/* 小節標題 (例如：問題出在哪？) */
+.copybooktitle {
   font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: 300;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  line-height: 1.5;
+  text-align: left;
+  color: #0f172a;
+  margin-top: 2.5em;
+  margin-bottom: 1em;
   text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
 }
-.italic {
+
+/* ==========================================================================
+   3. 正文與文字樣式 (Body Text & Inline Styles)
+   ========================================================================== */
+.text {
   font-family: serif;
-  font-style: italic;
-  font-weight: normal;
-}
-.italic1 {
-  font-family: serif;
-  font-style: italic;
-  font-weight: bold;
-}
-.kai {
-  color: #347216;
-  font-family: kai, DFKai-sb, cursive, serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: normal;
-}
-.kai-one {
-  color: #347216;
-  font-family: kai, DFKai-sb, cursive, serif;
-  font-size: 1em;
-  font-style: normal;
-  font-weight: bold;
-}
-.line {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.line1 {
-  text-decoration: underline;
-}
-.ltalic-chinese-bold {
-  font-family: serif;
-  font-style: normal;
-  font-weight: bold;
-}
-.math-up {
-  color: #007aff;
-  font-family: serif;
-  font-size: 0.625em;
-  font-style: normal;
-  font-weight: bold;
-  vertical-align: super;
-}
-.name-kai {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #347216;
-  display: block;
-  font-family: kai, DFKai-sb, cursive, serif;
-  font-size: 1.29167em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: bold;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: right;
-  text-decoration: none;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  text-align: justify;
   text-indent: 2em;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
+  margin: 0.6em 0;
+  color: #1e293b;
 }
-.paraoverride {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
-.paraoverride1 {
-  -epub-text-align-last: center;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
+
+.text-hei {
+  font-family: sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
   text-align: justify;
-  margin: 0;
-  padding: 0;
+  text-indent: 2em;
+  margin: 0.6em 0;
 }
-.point-text {
-  -epub-text-align-last: left;
-  display: list-item;
-  font-family: serif;
-  font-size: 1em;
+
+/* 心理獨白（原鮮綠色改為舒適的暗藍灰色） */
+.kai {
+  color: #334155;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
   font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  list-style-position: outside;
-  list-style-type: disc;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
 }
+
+/* 神性代名詞（祢） */
+.kai-one {
+  color: #0f172a;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+  font-weight: bold;
+}
+
+.name-kai, .text-fang-song {
+  color: #334155;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+}
+
+.work-kai {
+  color: #475569;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+  font-size: 0.9em;
+  text-align: right;
+}
+
+/* ==========================================================================
+   4. 手機夜間模式 / 深色模式自動適應 (Dark Mode for Mobile Browsers)
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  /* 當手機切換為深色模式時自動觸發 */
+  html {
+    background-color: #121212;
+  }
+  
+  body, .calibre {
+    background-color: #121212 !important;
+    color: #cbd5e1 !important; /* 柔和淺灰字，不刺眼 */
+  }
+
+  /* 內文與段落 */
+  .text, .text-hei, .big-text, .aurther {
+    color: #cbd5e1 !important;
+  }
+
+  /* 標題顏色優化 */
+  .h2-name, .copybooktitle {
+    color: #f1f5f9 !important; /* 純度較高的白 */
+  }
+
+  .h1, .con-title {
+    color: #94a3b8 !important; /* 柔和藍灰 */
+  }
+
+  /* 心理獨白（夜間模式下轉為亮色楷體） */
+  .kai, .name-kai, .text-fang-song, .work-kai {
+    color: #94a3b8 !important;
+  }
+
+  /* 神性代名詞（祢） */
+  .kai-one {
+    color: #f8fafc !important;
+  }
+
+  /* 分隔線 */
+  .calibre2 {
+    color: #334155 !important;
+    border-top-color: #334155 !important;
+  }
+
+  /* 引言與區塊背景 */
+  .ppp {
+    background-color: #1e293b !important;
+    border-left: 4px solid #475569 !important;
+  }
+
+  /* 表格深色適應 */
+  .biao, .biao2, .biao3, .biao4, .biao5 {
+    border-color: #334155 !important;
+  }
+  .biao2, .biao4 {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+  }
+}
+
+/* ==========================================================================
+   5. 其他輔助與表格樣式
+   ========================================================================== */
 .ppp {
-  background-color: #eeefef;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  max-width: 100%;
-  margin: 0;
+  background-color: #f8fafc;
+  border-left: 4px solid #cbd5e1;
+  margin: 1em 0;
   padding: 1em;
 }
-.song {
-  font-family: serif;
-  font-style: normal;
-  font-weight: normal;
+
+.biao {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  border: 1px solid #cbd5e1;
 }
-.text {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 2em;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.text-center {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.text-fang-song {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #347216;
-  display: block;
-  font-family: kai, DFKai-sb, cursive, serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: center;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.text-hei {
-  -epub-text-align-last: left;
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  display: block;
-  font-family: sans-serif;
-  font-size: 1em;
-  font-style: normal;
-  font-variant: normal;
-  font-weight: normal;
-  line-height: 1.6;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: justify;
-  text-decoration: none;
-  text-indent: 2em;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
-}
-.turn {
-  -epub-text-combine: horizontal;
-}
-.work-kai {
-  border-bottom-width: 0;
-  border-left-width: 0;
-  border-right-width: 0;
-  border-top-width: 0;
-  color: #347216;
-  display: block;
-  font-family: kai, DFKai-sb, cursive, serif;
-  font-size: 0.83333em;
-  font-style: normal;
-  font-variant: normal;
+
+.biao2, .biao4 {
+  background-color: #f1f5f9;
+  padding: 8px;
+  border: 1px solid #cbd5e1;
   font-weight: bold;
-  line-height: 1.5;
-  orphans: 1;
-  page-break-after: auto;
-  page-break-before: auto;
-  text-align: right;
-  text-decoration: none;
-  text-indent: 0;
-  text-transform: none;
-  widows: 1;
-  margin: 0;
-  padding: 0;
+}
+
+.biao3, .biao5 {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
 }
