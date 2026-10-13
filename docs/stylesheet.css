@@ -4,18 +4,24 @@
    1. 手機瀏覽器閱讀版面優化 (Mobile Web Reader Layout)
    ========================================================================== */
 html {
-  font-size: 16px; /* 基準字號，適應手機螢幕 */
+  font-size: 18px; /* 基準字號由 16px 提升至 18px，解決手機字體過小問題 */
 }
 
 body, .calibre {
-  max-width: 680px;          /* 限制最大寬度，避免在大螢幕或橫屏時字張得太寬 */
-  margin: 0 auto !important; /* 頁面水平居中 */
-  padding: 1.2rem 1rem !important; /* 為手機兩側留出舒適的內邊距，防止文字貼邊 */
+  max-width: 680px;
+  margin: 0 auto !important;
+  padding: 1rem 0.8rem !important; /* 為手機兩側留出舒適內邊距 */
   background-color: #ffffff;
   color: #1e293b;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-  line-height: 1.8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+  line-height: 1.85;
   -webkit-font-smoothing: antialiased;
+
+  /* 🔑 關鍵修復：強制手機自動換行，徹底解決文字溢出螢幕問題 */
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
 }
 
 .calibre1 {
@@ -61,29 +67,29 @@ body, .calibre {
   margin: 0.5em 0 1.8em 0;
 }
 
-/* 時間導航標題 (例如：早上 6:00) */
+/* 時間導航標題 (直接配合 XHTML 內文中的 ⏰ Emoji) */
 .con-title {
   font-family: sans-serif;
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.5;
   text-align: left;
-  color: #334155;
+  color: #0f172a;
   margin-top: 2.2em;
-  margin-bottom: 0.8em;
+  margin-bottom: 0.6em;
   text-indent: 0;
 }
 
 /* 小節標題 (例如：問題出在哪？) */
-.copybooktitle {
+h3.copybooktitle, .copybooktitle {
   font-family: serif;
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   font-weight: bold;
   line-height: 1.5;
   text-align: left;
   color: #0f172a;
   margin-top: 2.5em;
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
   text-indent: 0;
 }
 
@@ -92,100 +98,105 @@ body, .calibre {
    ========================================================================== */
 .text {
   font-family: serif;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   line-height: 1.85;
   text-align: justify;
   text-indent: 2em;
-  margin: 0.6em 0;
+  margin: 0.7em 0;
   color: #1e293b;
 }
 
 .text-hei {
   font-family: sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.8;
   text-align: justify;
   text-indent: 2em;
-  margin: 0.6em 0;
+  margin: 0.7em 0;
 }
 
-/* 心理獨白（原鮮綠色改為舒適的暗藍灰色） */
+/* 思考問題條列專用樣式 */
+.question-list {
+  margin: 1.2em 0;
+  padding-left: 1.8em;
+  font-family: serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #1e293b;
+}
+
+.question-list li {
+  margin-bottom: 0.6em;
+  text-indent: 0;
+}
+
+/* 🔑 心理獨白：還原為舒適清晰的高對比墨綠色 (Forest Green) */
 .kai {
-  color: #334155;
+  color: #15803d;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
   font-style: normal;
+  font-weight: 500;
 }
 
 /* 神性代名詞（祢） */
 .kai-one {
-  color: #0f172a;
+  color: #092e20;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
   font-weight: bold;
 }
 
 .name-kai, .text-fang-song {
-  color: #334155;
+  color: #15803d;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
 }
 
 .work-kai {
-  color: #475569;
+  color: #166534;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
   font-size: 0.9em;
   text-align: right;
 }
 
 /* ==========================================================================
-   4. 手機夜間模式 / 深色模式自動適應 (Dark Mode for Mobile Browsers)
+   4. 手機夜間模式 / 深色模式自動適應 (Dark Mode)
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
-  /* 當手機切換為深色模式時自動觸發 */
-  html {
-    background-color: #121212;
-  }
-  
-  body, .calibre {
+  html, body, .calibre {
     background-color: #121212 !important;
-    color: #cbd5e1 !important; /* 柔和淺灰字，不刺眼 */
+    color: #e2e8f0 !important;
   }
 
-  /* 內文與段落 */
-  .text, .text-hei, .big-text, .aurther {
-    color: #cbd5e1 !important;
+  .text, .text-hei, .big-text, .aurther, .question-list {
+    color: #e2e8f0 !important;
   }
 
-  /* 標題顏色優化 */
-  .h2-name, .copybooktitle {
-    color: #f1f5f9 !important; /* 純度較高的白 */
-  }
-
-  .h1, .con-title {
-    color: #94a3b8 !important; /* 柔和藍灰 */
-  }
-
-  /* 心理獨白（夜間模式下轉為亮色楷體） */
-  .kai, .name-kai, .text-fang-song, .work-kai {
-    color: #94a3b8 !important;
-  }
-
-  /* 神性代名詞（祢） */
-  .kai-one {
+  .h2-name, h3.copybooktitle, .copybooktitle, .con-title {
     color: #f8fafc !important;
   }
 
-  /* 分隔線 */
+  .h1 {
+    color: #94a3b8 !important;
+  }
+
+  /* 🔑 深色模式下的獨白：轉為清爽極佳的翡翠綠 */
+  .kai, .name-kai, .text-fang-song, .work-kai {
+    color: #4ade80 !important;
+  }
+
+  .kai-one {
+    color: #86efac !important;
+  }
+
   .calibre2 {
     color: #334155 !important;
     border-top-color: #334155 !important;
   }
 
-  /* 引言與區塊背景 */
   .ppp {
     background-color: #1e293b !important;
     border-left: 4px solid #475569 !important;
   }
 
-  /* 表格深色適應 */
   .biao, .biao2, .biao3, .biao4, .biao5 {
     border-color: #334155 !important;
   }
