@@ -4,20 +4,19 @@
    1. 手機瀏覽器閱讀版面優化 (Mobile Web Reader Layout)
    ========================================================================== */
 html {
-  font-size: 18px; /* 基準字號由 16px 提升至 18px，解決手機字體過小問題 */
+  font-size: 18px; /* 基準字號 18px */
 }
 
 body, .calibre {
   max-width: 680px;
   margin: 0 auto !important;
-  padding: 1rem 0.8rem !important; /* 為手機兩側留出舒適內邊距 */
+  padding: 1rem 0.8rem !important;
   background-color: #ffffff;
   color: #1e293b;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
 
-  /* 🔑 關鍵修復：強制手機自動換行，徹底解決文字溢出螢幕問題 */
   white-space: normal !important;
   word-wrap: break-word !important;
   word-break: break-word !important;
@@ -67,7 +66,6 @@ body, .calibre {
   margin: 0.5em 0 1.8em 0;
 }
 
-/* 時間導航標題 (直接配合 XHTML 內文中的 ⏰ Emoji) */
 .con-title {
   font-family: sans-serif;
   font-size: 1.2rem;
@@ -80,7 +78,6 @@ body, .calibre {
   text-indent: 0;
 }
 
-/* 小節標題 (例如：問題出在哪？) */
 h3.copybooktitle, .copybooktitle {
   font-family: serif;
   font-size: 1.35rem;
@@ -130,7 +127,7 @@ h3.copybooktitle, .copybooktitle {
   text-indent: 0;
 }
 
-/* 🔑 心理獨白：還原為舒適清晰的高對比墨綠色 (Forest Green) */
+/* 心理獨白 */
 .kai {
   color: #15803d;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
@@ -143,6 +140,15 @@ h3.copybooktitle, .copybooktitle {
   color: #092e20;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
   font-weight: bold;
+}
+
+/* 🔑 經文引用與出處特別強調樣式（柔和黃底高亮） */
+.bible-quote {
+  background-color: #fef08a;
+  color: #713f12;
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
 .name-kai, .text-fang-song {
@@ -276,13 +282,18 @@ ul.toc-list a:hover {
     color: #94a3b8 !important;
   }
 
-  /* 🔑 深色模式下的獨白：轉為清爽極佳的翡翠綠 */
   .kai, .name-kai, .text-fang-song, .work-kai {
     color: #4ade80 !important;
   }
 
   .kai-one {
     color: #86efac !important;
+  }
+
+  /* 深色模式下的經文高亮 */
+  .bible-quote {
+    background-color: #854d0e !important;
+    color: #fef08a !important;
   }
 
   .calibre2 {
