@@ -164,8 +164,7 @@ h3.copybooktitle, .copybooktitle {
   max-width: 680px;
   margin: 0 auto;
   background: #ffffff;
-  padding: 1.5rem 1rem;
-  border-radius: 12px;
+  padding: 1rem 0.5rem;
 }
 
 .header {
