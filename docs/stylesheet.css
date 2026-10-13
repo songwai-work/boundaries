@@ -158,12 +158,111 @@ h3.copybooktitle, .copybooktitle {
 }
 
 /* ==========================================================================
-   4. 手機夜間模式 / 深色模式自動適應 (Dark Mode)
+   4. 電子書目錄頁樣式 (TOC & Catalog Layout)
+   ========================================================================== */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+}
+
+.header {
+  text-align: center;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
+}
+
+.header h1 {
+  color: #0f172a;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.cover-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.section-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2563eb;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  padding-left: 0.6rem;
+  border-left: 4px solid #2563eb;
+}
+
+ul.toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul.toc-list li {
+  margin-bottom: 0.4rem;
+}
+
+ul.toc-list a {
+  display: block;
+  padding: 0.6rem 0.8rem;
+  color: #334155;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+ul.toc-list a:hover {
+  background-color: #eff6ff;
+  color: #2563eb;
+}
+
+.chapter-num {
+  font-weight: 600;
+  display: inline-block;
+  min-width: 70px;
+}
+
+/* ==========================================================================
+   5. 手機夜間模式 / 深色模式自動適應 (Dark Mode)
    ========================================================================== */
 @media (prefers-color-scheme: dark) {
   html, body, .calibre {
     background-color: #121212 !important;
     color: #e2e8f0 !important;
+  }
+
+  .container {
+    background-color: #121212 !important;
+  }
+
+  .header h1 {
+    color: #f8fafc !important;
+  }
+
+  .header {
+    border-bottom-color: #334155 !important;
+  }
+
+  .section-title {
+    color: #60a5fa !important;
+    border-left-color: #60a5fa !important;
+  }
+
+  ul.toc-list a {
+    color: #cbd5e1 !important;
+  }
+
+  ul.toc-list a:hover {
+    background-color: #1e293b !important;
+    color: #60a5fa !important;
   }
 
   .text, .text-hei, .big-text, .aurther, .question-list {
@@ -207,7 +306,7 @@ h3.copybooktitle, .copybooktitle {
 }
 
 /* ==========================================================================
-   5. 其他輔助與表格樣式
+   6. 其他輔助與表格樣式
    ========================================================================== */
 .ppp {
   background-color: #f8fafc;
