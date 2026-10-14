@@ -42,6 +42,42 @@ body, .calibre {
   border-top: 1px solid #cbd5e1;
 }
 
+/* 數字與時間標記：使用等寬數字，避免時間與經節數字錯位 */
+.turn {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 斜體（書名、英文原文） */
+.italic, .italic1 {
+  font-style: italic;
+}
+
+/* 圖片區塊：置中，避免超出版面 */
+.img {
+  text-align: center;
+  margin: 1.2em 0;
+}
+
+.img img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 註腳上標與註腳內文 */
+.math-up {
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.ex-text {
+  font-size: 0.85em;
+  line-height: 1.7;
+  color: #475569;
+  margin: 0.6em 0;
+  text-indent: 0;
+}
+
 /* ==========================================================================
    2. 標題與章節層級 (Headings & Titles)
    ========================================================================== */
@@ -53,6 +89,17 @@ body, .calibre {
   line-height: 1.4;
   text-align: center;
   margin: 1.5em 0 0.5em 0;
+}
+
+/* 前後文頁面主標題（作者簡介、讚譽、推薦序、致謝等） */
+.h1-none {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  line-height: 1.4;
+  text-align: center;
+  color: #0f172a;
+  margin: 1.2em 0 1em 0;
 }
 
 .h2-math {
@@ -117,6 +164,17 @@ h3.copybooktitle, .copybooktitle {
   margin: 0.7em 0;
 }
 
+/* 置中段落（前後文、短句、標語用） */
+.text-center {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: center;
+  text-indent: 0;
+  margin: 0.4em 0;
+  color: #1e293b;
+}
+
 /* 思考問題條列專用樣式 */
 .question-list {
   margin: 1.2em 0;
@@ -125,6 +183,7 @@ h3.copybooktitle, .copybooktitle {
   font-size: 1.1rem;
   line-height: 1.85;
   color: #1e293b;
+  list-style-type: decimal;
 }
 
 .question-list li {
@@ -147,11 +206,10 @@ h3.copybooktitle, .copybooktitle {
   font-weight: bold;
 }
 
-/* 🔑 經文引用與出處特別強調樣式（移除底色，採用典雅文字加粗與字色高亮） */
+/* 經文引用與出處特別強調樣式（無底色，典雅文字加粗與字色高亮） */
 .bible-quote {
-  background-color: transparent !important; /* 直接移除底色 */
-  color: #1e40af; /* 典雅深藍字色，無底色時閱讀感佳 */
-  /* 電腦優先調用標楷體；手機若無標楷體，自動後備調用高質感無襯線黑體 */
+  background-color: transparent !important;
+  color: #1e40af;
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-weight: 600;
   display: inline;
@@ -167,6 +225,56 @@ h3.copybooktitle, .copybooktitle {
   font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 0.9em;
   text-align: right;
+}
+
+/* 版權頁等小字段落 */
+.copytext {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-indent: 0;
+  margin: 0.6em 0;
+}
+
+/* ==========================================================================
+   3-1. 詩歌與分行文字 (Poetry & Verse)
+   每節為一個 .poem-stanza，節內以 <br /> 換行，節與節之間由樣式控制間距
+   ========================================================================== */
+.poem {
+  margin: 1.5em 0;
+  text-align: center;
+  line-height: 2;
+}
+
+.poem-title {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #0f172a;
+  margin: 1.5em 0 1em 0;
+}
+
+.poem-stanza {
+  margin: 0 0 1.4em 0;
+  text-indent: 0;
+  text-align: center;
+  color: #1e293b;
+}
+
+/* ==========================================================================
+   3-2. 獻詞與題詞 (Dedication)
+   ========================================================================== */
+.dedication {
+  margin: 2em 0;
+  text-align: center;
+  line-height: 2;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+}
+
+.dedication-group {
+  margin: 0 0 1.8em 0;
+  text-indent: 0;
 }
 
 /* ==========================================================================
@@ -278,15 +386,19 @@ ul.toc-list a:hover {
     color: #60a5fa !important;
   }
 
-  .text, .text-hei, .big-text, .aurther, .question-list {
+  .text, .text-hei, .text-center, .copytext, .big-text, .aurther, .question-list, .poem-stanza, .dedication {
     color: #e2e8f0 !important;
   }
 
-  .h2-name, h3.copybooktitle, .copybooktitle, .con-title {
+  .h1-none, .h2-name, h3.copybooktitle, .copybooktitle, .con-title, .poem-title {
     color: #f8fafc !important;
   }
 
   .h1 {
+    color: #94a3b8 !important;
+  }
+
+  .ex-text {
     color: #94a3b8 !important;
   }
 
@@ -337,6 +449,10 @@ ul.toc-list a:hover {
 
   .text {
     text-indent: 1.8em;
+  }
+
+  .poem {
+    line-height: 1.9;
   }
 }
 
