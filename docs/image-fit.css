@@ -1,0 +1,17 @@
+/* 圖片頁專用：依視窗寬度等比縮放，避免超出螢幕 */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #fff;
+}
+body {
+  padding: 8px;
+  box-sizing: border-box;
+}
+body img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}

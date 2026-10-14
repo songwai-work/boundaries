@@ -1,70 +1,157 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" xml:lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>立界線得自由 - 線上電子書目錄</title>
-  <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-  <link rel="stylesheet" type="text/css" href="page_styles.css"/>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+    }
+    .layout {
+      display: flex;
+      height: 100vh;
+      width: 100%;
+    }
+    .toc {
+      width: 300px;
+      min-width: 220px;
+      flex-shrink: 0;
+      overflow-y: auto;
+      background: #f7f5f0;
+      border-right: 1px solid #d8d2c4;
+      padding: 12px 14px 40px;
+      box-sizing: border-box;
+    }
+    .toc h1 {
+      font-size: 1.2em;
+      margin: 8px 0 4px;
+    }
+    .toc .author {
+      font-size: 0.85em;
+      color: #666;
+      margin: 0 0 12px;
+    }
+    .toc .section-title {
+      font-weight: bold;
+      margin: 16px 0 6px;
+      padding: 4px 6px;
+      background: #e9e4d8;
+      border-radius: 4px;
+    }
+    .toc .section-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .toc .section-title a:hover {
+      text-decoration: underline;
+    }
+    .toc ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .toc li {
+      margin: 4px 0;
+      line-height: 1.5;
+    }
+    .toc li a {
+      color: #1a4f8b;
+      text-decoration: none;
+      display: block;
+      padding: 3px 6px;
+      border-radius: 3px;
+    }
+    .toc li a:hover,
+    .toc li a:focus {
+      background: #e2ecf7;
+      text-decoration: underline;
+    }
+    .toc .chapter-num {
+      color: #777;
+      font-size: 0.9em;
+      margin-right: 4px;
+    }
+    .reader {
+      flex: 1;
+      height: 100%;
+      border: none;
+      background: #fff;
+    }
+    @media (max-width: 700px) {
+      .layout { flex-direction: column; }
+      .toc {
+        width: 100%;
+        height: 40vh;
+        min-width: 0;
+        border-right: none;
+        border-bottom: 1px solid #d8d2c4;
+      }
+      .reader { height: 60vh; flex: none; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="header">
-    <img src="cover.jpeg" alt="立界線得自由 封面" class="cover-img">
+<div class="layout">
+
+  <nav class="toc" aria-label="目錄">
     <h1>立界線得自由</h1>
-    <p>亨利．克勞德（Henry Cloud）、約翰．湯森德（John Townsend） 著</p>
-  </div>
+    <p class="author">亨利．克勞德（Henry Cloud）、約翰．湯森德（John Townsend） 著</p>
 
-  <div class="section-title">書名與前言</div>
-  <ul class="toc-list">
-    <li><a href="titlepage.xhtml">📖 封面頁</a></li>
-    <li><a href="OEBPS/A.xhtml#_idParaDest-1">作者簡介</a></li>
-    <li><a href="OEBPS/A-3.xhtml#_idParaDest-2">讚譽</a></li>
-    <li><a href="OEBPS/A-1.xhtml">Name 書系說明</a></li>
-    <li><a href="OEBPS/A-2.xhtml">Name 書系總序</a></li>
-    <li><a href="OEBPS/QQQA-7.xhtml#_idParaDest-4">原書簡易目錄頁</a></li>
-    <li><a href="OEBPS/A-8.xhtml#_idParaDest-5">推薦序：照見有界線的自由風景</a></li>
-    <li><a href="OEBPS/A-9.xhtml#_idParaDest-6">致謝</a></li>
-  </ul>
+    <div class="section-title">書名與前言</div>
+    <ul>
+      <li><a href="titlepage.xhtml" target="reader">📖 封面頁</a></li>
+      <li><a href="OEBPS/A.xhtml#_idParaDest-1" target="reader">作者簡介</a></li>
+      <li><a href="OEBPS/A-3.xhtml#_idParaDest-2" target="reader">讚譽</a></li>
+      <li><a href="OEBPS/A-1.xhtml" target="reader">Name 書系說明</a></li>
+      <li><a href="OEBPS/A-2.xhtml" target="reader">Name 書系總序</a></li>
+      <li><a href="OEBPS/QQQA-7.xhtml" target="reader">目錄</a></li>
+      <li><a href="OEBPS/A-8.xhtml#_idParaDest-5" target="reader">推薦序：照見有界線的自由風景</a></li>
+      <li><a href="OEBPS/A-9.xhtml#_idParaDest-6" target="reader">致謝</a></li>
+    </ul>
 
-  <div class="section-title">第一部／什麼是界線？</div>
-  <ul class="toc-list">
-    <li><a href="OEBPS/A-10.xhtml#_idParaDest-7">第一部 引言</a></li>
-    <li><a href="OEBPS/A-11.xhtml#_idParaDest-8"><span class="chapter-num">第 1 章</span>界線混亂的一天</a></li>
-    <li><a href="OEBPS/A-12.xhtml#_idParaDest-9"><span class="chapter-num">第 2 章</span>界線看來啥模樣？</a></li>
-    <li><a href="OEBPS/A-13.xhtml#_idParaDest-10"><span class="chapter-num">第 3 章</span>當界線出了問題</a></li>
-    <li><a href="OEBPS/A-14.xhtml#_idParaDest-11"><span class="chapter-num">第 4 章</span>界線的發展歷程</a></li>
-    <li><a href="OEBPS/A-15.xhtml#_idParaDest-12"><span class="chapter-num">第 5 章</span>界線十律</a></li>
-    <li><a href="OEBPS/A-16.xhtml#_idParaDest-13"><span class="chapter-num">第 6 章</span>常見的界線迷思</a></li>
-  </ul>
+    <div class="section-title"><a href="OEBPS/A-10.xhtml#_idParaDest-7" target="reader">第一部／什麼是界線？</a></div>
+    <ul>
+      <li><a href="OEBPS/A-11.xhtml#_idParaDest-8" target="reader"><span class="chapter-num">第 1 章</span>界線混亂的一天</a></li>
+      <li><a href="OEBPS/A-12.xhtml#_idParaDest-9" target="reader"><span class="chapter-num">第 2 章</span>界線看來啥模樣？</a></li>
+      <li><a href="OEBPS/A-13.xhtml#_idParaDest-10" target="reader"><span class="chapter-num">第 3 章</span>當界線出了問題</a></li>
+      <li><a href="OEBPS/A-14.xhtml#_idParaDest-11" target="reader"><span class="chapter-num">第 4 章</span>界線的發展歷程</a></li>
+      <li><a href="OEBPS/A-15.xhtml#_idParaDest-12" target="reader"><span class="chapter-num">第 5 章</span>界線十律</a></li>
+      <li><a href="OEBPS/A-16.xhtml#_idParaDest-13" target="reader"><span class="chapter-num">第 6 章</span>常見的界線迷思</a></li>
+    </ul>
 
-  <div class="section-title">第二部／界線衝突</div>
-  <ul class="toc-list">
-    <li><a href="OEBPS/A-17.xhtml#_idParaDest-14">第二部 引言</a></li>
-    <li><a href="OEBPS/A-18.xhtml#_idParaDest-15"><span class="chapter-num">第 7 章</span>界線與你的家庭</a></li>
-    <li><a href="OEBPS/A-19.xhtml#_idParaDest-16"><span class="chapter-num">第 8 章</span>界線與你的朋友</a></li>
-    <li><a href="OEBPS/A-20.xhtml#_idParaDest-17"><span class="chapter-num">第 9 章</span>界線與你的配偶</a></li>
-    <li><a href="OEBPS/A-21.xhtml#_idParaDest-18"><span class="chapter-num">第 10 章</span>界線與你的子女</a></li>
-    <li><a href="OEBPS/A-22.xhtml#_idParaDest-19"><span class="chapter-num">第 11 章</span>界線與工作</a></li>
-    <li><a href="OEBPS/A-23.xhtml#_idParaDest-20"><span class="chapter-num">第 12 章</span>界線與數位時代</a></li>
-    <li><a href="OEBPS/A-24.xhtml#_idParaDest-21"><span class="chapter-num">第 13 章</span>界線與自己</a></li>
-    <li><a href="OEBPS/A-25.xhtml#_idParaDest-22"><span class="chapter-num">第 14 章</span>界線與上帝</a></li>
-  </ul>
+    <div class="section-title"><a href="OEBPS/A-17.xhtml#_idParaDest-14" target="reader">第二部／界線衝突</a></div>
+    <ul>
+      <li><a href="OEBPS/A-18.xhtml#_idParaDest-15" target="reader"><span class="chapter-num">第 7 章</span>界線與你的家庭</a></li>
+      <li><a href="OEBPS/A-19.xhtml#_idParaDest-16" target="reader"><span class="chapter-num">第 8 章</span>界線與你的朋友</a></li>
+      <li><a href="OEBPS/A-20.xhtml#_idParaDest-17" target="reader"><span class="chapter-num">第 9 章</span>界線與你的配偶</a></li>
+      <li><a href="OEBPS/A-21.xhtml#_idParaDest-18" target="reader"><span class="chapter-num">第 10 章</span>界線與你的子女</a></li>
+      <li><a href="OEBPS/A-22.xhtml#_idParaDest-19" target="reader"><span class="chapter-num">第 11 章</span>界線與工作</a></li>
+      <li><a href="OEBPS/A-23.xhtml#_idParaDest-20" target="reader"><span class="chapter-num">第 12 章</span>界線與數位時代</a></li>
+      <li><a href="OEBPS/A-24.xhtml#_idParaDest-21" target="reader"><span class="chapter-num">第 13 章</span>界線與自己</a></li>
+      <li><a href="OEBPS/A-25.xhtml#_idParaDest-22" target="reader"><span class="chapter-num">第 14 章</span>界線與上帝</a></li>
+    </ul>
 
-  <div class="section-title">第三部／發展健康的界線</div>
-  <ul class="toc-list">
-    <li><a href="OEBPS/Section0001.xhtml#_idParaDest-23">第三部 引言／插圖</a></li>
-    <li><a href="OEBPS/A-26.xhtml#_idParaDest-24"><span class="chapter-num">第 15 章</span>對界線的抗拒</a></li>
-    <li><a href="OEBPS/A-27.xhtml#_idParaDest-25"><span class="chapter-num">第 16 章</span>評估界線發展進度</a></li>
-    <li><a href="OEBPS/A-28.xhtml#_idParaDest-26"><span class="chapter-num">第 17 章</span>界線明確的一天</a></li>
-  </ul>
+    <div class="section-title"><a href="OEBPS/Section0001.xhtml#_idParaDest-23" target="reader">第三部／發展健康的界線</a></div>
+    <ul>
+      <li><a href="OEBPS/A-26.xhtml#_idParaDest-24" target="reader"><span class="chapter-num">第 15 章</span>對界線的抗拒</a></li>
+      <li><a href="OEBPS/A-27.xhtml#_idParaDest-25" target="reader"><span class="chapter-num">第 16 章</span>評估界線發展進度</a></li>
+      <li><a href="OEBPS/A-28.xhtml#_idParaDest-26" target="reader"><span class="chapter-num">第 17 章</span>界線明確的一天</a></li>
+    </ul>
 
-  <div class="section-title">附錄</div>
-  <ul class="toc-list">
-    <li><a href="OEBPS/A-29.xhtml">中英名詞對照表</a></li>
-  </ul>
+    <div class="section-title">附錄</div>
+    <ul>
+      <li><a href="OEBPS/A-29.xhtml" target="reader">中英名詞對照表</a></li>
+    </ul>
+  </nav>
+
+  <iframe class="reader" name="reader" src="titlepage.xhtml" title="閱讀區"></iframe>
+
 </div>
 
 </body>
