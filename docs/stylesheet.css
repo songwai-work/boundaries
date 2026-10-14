@@ -5,7 +5,7 @@
    ========================================================================== */
 html {
   font-size: 18px; /* 基準字號 18px */
-  -webkit-text-size-adjust: 100%; /* 防止 iOS 轉向時文字隨意改變大小 */
+  -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
@@ -14,14 +14,14 @@ body, .calibre {
   max-width: 680px;
   margin: 0 auto !important;
   padding: 1rem 0.8rem !important;
-  box-sizing: border-box !important; /* 確保 padding 不會撐大寬度 */
+  box-sizing: border-box !important;
   background-color: #ffffff;
   color: #1e293b;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+  /* 跨平台最佳現代通用字型棧：優先調用 iOS 蘋方、Android 思源黑體/系統黑體 */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   line-height: 1.85;
   -webkit-font-smoothing: antialiased;
 
-  /* 文字自動斷行與自動重排核心設定 */
   white-space: normal !important;
   word-wrap: break-word !important;
   word-break: break-word !important;
@@ -47,7 +47,7 @@ body, .calibre {
    ========================================================================== */
 .h1 {
   color: #64748b;
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.4;
@@ -56,13 +56,13 @@ body, .calibre {
 }
 
 .h2-math {
-  font-family: serif;
+  font-family: inherit;
   font-size: 1.4rem;
   font-weight: bold;
 }
 
 .h2-name {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
   line-height: 1.4;
@@ -72,7 +72,7 @@ body, .calibre {
 }
 
 .con-title {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 1.2rem;
   font-weight: bold;
   line-height: 1.5;
@@ -84,7 +84,7 @@ body, .calibre {
 }
 
 h3.copybooktitle, .copybooktitle {
-  font-family: serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 1.35rem;
   font-weight: bold;
   line-height: 1.5;
@@ -99,7 +99,7 @@ h3.copybooktitle, .copybooktitle {
    3. 正文與文字樣式 (Body Text & Inline Styles)
    ========================================================================== */
 .text {
-  font-family: serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   font-size: 1.1rem;
   line-height: 1.85;
   text-align: justify;
@@ -109,7 +109,7 @@ h3.copybooktitle, .copybooktitle {
 }
 
 .text-hei {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 1.05rem;
   line-height: 1.8;
   text-align: justify;
@@ -121,7 +121,7 @@ h3.copybooktitle, .copybooktitle {
 .question-list {
   margin: 1.2em 0;
   padding-left: 1.8em;
-  font-family: serif;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 1.1rem;
   line-height: 1.85;
   color: #1e293b;
@@ -135,7 +135,7 @@ h3.copybooktitle, .copybooktitle {
 /* 心理獨白 */
 .kai {
   color: #15803d;
-  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-style: normal;
   font-weight: 500;
 }
@@ -143,30 +143,28 @@ h3.copybooktitle, .copybooktitle {
 /* 神性代名詞（祢） */
 .kai-one {
   color: #092e20;
-  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-weight: bold;
 }
 
-/* 🔑 經文引用與出處特別強調樣式（柔和藍底高亮） */
+/* 🔑 經文引用與出處特別強調樣式（移除底色，採用典雅文字加粗與字色高亮） */
 .bible-quote {
-  background-color: #dbeafe;
-  color: #1e40af;
-  padding: 0.1em 0.3em;
-  border-radius: 4px;
-  font-weight: 500;
+  background-color: transparent !important; /* 直接移除底色 */
+  color: #1e40af; /* 典雅深藍字色，無底色時閱讀感佳 */
+  /* 電腦優先調用標楷體；手機若無標楷體，自動後備調用高質感無襯線黑體 */
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+  font-weight: 600;
   display: inline;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
 }
 
 .name-kai, .text-fang-song {
   color: #15803d;
-  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
 }
 
 .work-kai {
   color: #166534;
-  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, serif;
+  font-family: "Kaiti SC", "KaiTi", "標楷體", DFKai-sb, -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
   font-size: 0.9em;
   text-align: right;
 }
@@ -300,10 +298,10 @@ ul.toc-list a:hover {
     color: #86efac !important;
   }
 
-  /* 深色模式下的經文高亮（藏青底淺藍字） */
+  /* 深色模式下的經文高亮（無底色，淺藍字加粗） */
   .bible-quote {
-    background-color: #1e3a8a !important;
-    color: #bfdbfe !important;
+    background-color: transparent !important;
+    color: #93c5fd !important;
   }
 
   .calibre2 {
@@ -326,11 +324,11 @@ ul.toc-list a:hover {
 }
 
 /* ==========================================================================
-   6. 小螢幕手機與閱讀器響應式微調 (Mobile Responsive Adjustments)
+   6. 小螢幕手機響應式微調 (Mobile Responsive Adjustments)
    ========================================================================== */
 @media screen and (max-width: 480px) {
   html {
-    font-size: 16px; /* 極小螢幕下適當降低基準字號 */
+    font-size: 16px;
   }
 
   body, .calibre {
@@ -338,7 +336,7 @@ ul.toc-list a:hover {
   }
 
   .text {
-    text-indent: 1.8em; /* 調整縮排比例 */
+    text-indent: 1.8em;
   }
 }
 
