@@ -14,9 +14,11 @@
     }
     .layout {
       display: flex;
-      height: 100vh;
+      height: 100%;
       width: 100%;
     }
+
+    /* 目錄 */
     .toc {
       width: 300px;
       min-width: 220px;
@@ -27,15 +29,8 @@
       padding: 12px 14px 40px;
       box-sizing: border-box;
     }
-    .toc h1 {
-      font-size: 1.2em;
-      margin: 8px 0 4px;
-    }
-    .toc .author {
-      font-size: 0.85em;
-      color: #666;
-      margin: 0 0 12px;
-    }
+    .toc h1 { font-size: 1.2em; margin: 8px 0 4px; }
+    .toc .author { font-size: 0.85em; color: #666; margin: 0 0 12px; }
     .toc .section-title {
       font-weight: bold;
       margin: 16px 0 6px;
@@ -43,55 +38,92 @@
       background: #e9e4d8;
       border-radius: 4px;
     }
-    .toc .section-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .toc .section-title a:hover {
-      text-decoration: underline;
-    }
-    .toc ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .toc li {
-      margin: 4px 0;
-      line-height: 1.5;
-    }
+    .toc .section-title a { color: inherit; text-decoration: none; }
+    .toc .section-title a:hover { text-decoration: underline; }
+    .toc ul { list-style: none; margin: 0; padding: 0; }
+    .toc li { margin: 4px 0; line-height: 1.5; }
     .toc li a {
       color: #1a4f8b;
       text-decoration: none;
       display: block;
-      padding: 3px 6px;
+      padding: 6px 6px;
       border-radius: 3px;
     }
-    .toc li a:hover,
-    .toc li a:focus {
-      background: #e2ecf7;
-      text-decoration: underline;
-    }
-    .toc .chapter-num {
-      color: #777;
-      font-size: 0.9em;
-      margin-right: 4px;
-    }
+    .toc li a:hover, .toc li a:focus { background: #e2ecf7; text-decoration: underline; }
+    .toc .chapter-num { color: #777; font-size: 0.9em; margin-right: 4px; }
+
+    /* 閱讀區 */
     .reader {
       flex: 1;
+      min-height: 0;
       height: 100%;
       border: none;
       background: #fff;
     }
+
+    /* 手機版頂部列、遮罩：桌機隱藏 */
+    .topbar, .scrim { display: none; }
+
+    /* 手機版 */
     @media (max-width: 700px) {
-      .layout { flex-direction: column; }
-      .toc {
-        width: 100%;
-        height: 40vh;
-        min-width: 0;
-        border-right: none;
+      .layout {
+        flex-direction: column;
+        position: relative;
+      }
+      .topbar {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+        height: 48px;
+        padding: 0 12px;
+        box-sizing: border-box;
+        background: #f7f5f0;
         border-bottom: 1px solid #d8d2c4;
       }
-      .reader { height: 60vh; flex: none; }
+      .topbar button {
+        font-size: 16px;
+        padding: 6px 14px;
+        border: 1px solid #b9b2a0;
+        background: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .topbar .name {
+        font-size: 15px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .reader {
+        flex: 1;
+        height: auto;
+      }
+
+      /* 目錄變成左側抽屜，預設隱藏 */
+      .toc {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 82%;
+        max-width: 320px;
+        min-width: 0;
+        border-right: 1px solid #d8d2c4;
+        box-shadow: 2px 0 8px rgba(0,0,0,0.15);
+        transform: translateX(-105%);
+        transition: transform 0.2s ease;
+        z-index: 10;
+      }
+      .scrim {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.3);
+        z-index: 5;
+      }
+      body.toc-open .toc { transform: translateX(0); }
+      body.toc-open .scrim { display: block; }
     }
   </style>
 </head>
@@ -99,7 +131,12 @@
 
 <div class="layout">
 
-  <nav class="toc" aria-label="目錄">
+  <div class="topbar">
+    <button type="button" id="tocBtn" aria-controls="toc" aria-expanded="false">☰ 目錄</button>
+    <span class="name">立界線得自由</span>
+  </div>
+
+  <nav class="toc" id="toc" aria-label="目錄">
     <h1>立界線得自由</h1>
     <p class="author">亨利．克勞德（Henry Cloud）、約翰．湯森德（John Townsend） 著</p>
 
@@ -150,9 +187,35 @@
     </ul>
   </nav>
 
+  <div class="scrim" id="scrim"></div>
+
   <iframe class="reader" name="reader" src="titlepage.xhtml" title="閱讀區"></iframe>
 
 </div>
+
+<script>
+  (function () {
+    var body = document.body;
+    var btn = document.getElementById('tocBtn');
+    var toc = document.getElementById('toc');
+    var scrim = document.getElementById('scrim');
+
+    function setOpen(open) {
+      body.classList.toggle('toc-open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    btn.addEventListener('click', function () {
+      setOpen(!body.classList.contains('toc-open'));
+    });
+    scrim.addEventListener('click', function () { setOpen(false); });
+
+    // 手機版點選任一連結後自動收起目錄
+    toc.addEventListener('click', function (e) {
+      if (e.target.closest('a')) setOpen(false);
+    });
+  })();
+</script>
 
 </body>
 </html>
