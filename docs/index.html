@@ -6,11 +6,48 @@
   <meta name="robots" content="noindex, nofollow" />
   <title>立界線得自由 - 線上電子書目錄</title>
   <style>
+    /* ===== 亮色（預設） ===== */
+    :root {
+      --bg: #ffffff;
+      --toc-bg: #f7f5f0;
+      --toc-border: #d8d2c4;
+      --toc-text: #1e293b;
+      --toc-link: #1a4f8b;
+      --toc-link-hover-bg: #e2ecf7;
+      --toc-section-bg: #e9e4d8;
+      --toc-num: #777;
+      --topbar-bg: #f7f5f0;
+      --topbar-border: #d8d2c4;
+      --topbar-btn-bg: #ffffff;
+      --topbar-btn-border: #b9b2a0;
+      --scrim: rgba(0,0,0,0.3);
+    }
+
+    /* ===== 暗色 ===== */
+    html.dark {
+      --bg: #121212;
+      --toc-bg: #1a1a1a;
+      --toc-border: #333333;
+      --toc-text: #e2e8f0;
+      --toc-link: #7fb3ff;
+      --toc-link-hover-bg: #1e293b;
+      --toc-section-bg: #2a2a2a;
+      --toc-num: #94a3b8;
+      --topbar-bg: #1a1a1a;
+      --topbar-border: #333333;
+      --topbar-btn-bg: #2a2a2a;
+      --topbar-btn-border: #444444;
+      --scrim: rgba(0,0,0,0.55);
+    }
+
     html, body {
       margin: 0;
       height: 100%;
       overflow: hidden;
       font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+      background: var(--bg);
+      color: var(--toc-text);
+      transition: background-color 0.2s, color 0.2s;
     }
     .layout {
       display: flex;
@@ -24,33 +61,38 @@
       min-width: 220px;
       flex-shrink: 0;
       overflow-y: auto;
-      background: #f7f5f0;
-      border-right: 1px solid #d8d2c4;
+      background: var(--toc-bg);
+      border-right: 1px solid var(--toc-border);
       padding: 12px 14px 40px;
       box-sizing: border-box;
+      transition: background-color 0.2s, border-color 0.2s;
     }
-    .toc h1 { font-size: 1.2em; margin: 8px 0 4px; }
-    .toc .author { font-size: 0.85em; color: #666; margin: 0 0 12px; }
+    .toc h1 { font-size: 1.2em; margin: 8px 0 4px; color: var(--toc-text); }
+    .toc .author { font-size: 0.85em; color: var(--toc-num); margin: 0 0 12px; }
     .toc .section-title {
       font-weight: bold;
       margin: 16px 0 6px;
       padding: 4px 6px;
-      background: #e9e4d8;
+      background: var(--toc-section-bg);
       border-radius: 4px;
+      color: var(--toc-text);
     }
     .toc .section-title a { color: inherit; text-decoration: none; }
     .toc .section-title a:hover { text-decoration: underline; }
     .toc ul { list-style: none; margin: 0; padding: 0; }
     .toc li { margin: 4px 0; line-height: 1.5; }
     .toc li a {
-      color: #1a4f8b;
+      color: var(--toc-link);
       text-decoration: none;
       display: block;
       padding: 6px 6px;
       border-radius: 3px;
     }
-    .toc li a:hover, .toc li a:focus { background: #e2ecf7; text-decoration: underline; }
-    .toc .chapter-num { color: #777; font-size: 0.9em; margin-right: 4px; }
+    .toc li a:hover, .toc li a:focus {
+      background: var(--toc-link-hover-bg);
+      text-decoration: underline;
+    }
+    .toc .chapter-num { color: var(--toc-num); font-size: 0.9em; margin-right: 4px; }
 
     /* 閱讀區 */
     .reader {
@@ -58,7 +100,7 @@
       min-height: 0;
       height: 100%;
       border: none;
-      background: #fff;
+      background: var(--bg);
     }
 
     /* 手機版頂部列、遮罩：桌機隱藏 */
@@ -78,14 +120,15 @@
         height: 48px;
         padding: 0 12px;
         box-sizing: border-box;
-        background: #f7f5f0;
-        border-bottom: 1px solid #d8d2c4;
+        background: var(--topbar-bg);
+        border-bottom: 1px solid var(--topbar-border);
       }
       .topbar button {
         font-size: 16px;
         padding: 6px 14px;
-        border: 1px solid #b9b2a0;
-        background: #fff;
+        border: 1px solid var(--topbar-btn-border);
+        background: var(--topbar-btn-bg);
+        color: var(--toc-text);
         border-radius: 4px;
         cursor: pointer;
       }
@@ -94,6 +137,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
+        color: var(--toc-text);
       }
       .reader {
         flex: 1;
@@ -109,21 +153,44 @@
         width: 82%;
         max-width: 320px;
         min-width: 0;
-        border-right: 1px solid #d8d2c4;
+        border-right: 1px solid var(--toc-border);
         box-shadow: 2px 0 8px rgba(0,0,0,0.15);
         transform: translateX(-105%);
-        transition: transform 0.2s ease;
+        transition: transform 0.2s ease, background-color 0.2s;
         z-index: 10;
       }
       .scrim {
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.3);
+        background: var(--scrim);
         z-index: 5;
       }
       body.toc-open .toc { transform: translateX(0); }
       body.toc-open .scrim { display: block; }
+    }
+
+    /* 桌機版：暗色切換鈕固定在右上角 */
+    .theme-toggle {
+      position: fixed;
+      top: 10px;
+      right: 12px;
+      z-index: 20;
+      font-size: 18px;
+      line-height: 1;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--topbar-btn-border);
+      background: var(--topbar-btn-bg);
+      color: var(--toc-text);
+      cursor: pointer;
+    }
+    /* 手機版：把切換鈕放進 topbar 內，不再浮動 */
+    @media (max-width: 700px) {
+      .theme-toggle {
+        position: static;
+        margin-left: auto;
+      }
     }
   </style>
 </head>
@@ -134,6 +201,7 @@
   <div class="topbar">
     <button type="button" id="tocBtn" aria-controls="toc" aria-expanded="false">☰ 目錄</button>
     <span class="name">立界線得自由</span>
+    <button type="button" id="themeToggle" class="theme-toggle" aria-label="切換深色模式">🌙</button>
   </div>
 
   <nav class="toc" id="toc" aria-label="目錄">
@@ -199,21 +267,112 @@
     var btn = document.getElementById('tocBtn');
     var toc = document.getElementById('toc');
     var scrim = document.getElementById('scrim');
+    var reader = document.querySelector('iframe.reader');
+    var themeToggle = document.getElementById('themeToggle');
 
+    // ===== 目錄抽屜 =====
     function setOpen(open) {
       body.classList.toggle('toc-open', open);
       btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
-
     btn.addEventListener('click', function () {
       setOpen(!body.classList.contains('toc-open'));
     });
     scrim.addEventListener('click', function () { setOpen(false); });
-
-    // 手機版點選任一連結後自動收起目錄
     toc.addEventListener('click', function (e) {
       if (e.target.closest('a')) setOpen(false);
     });
+
+    // ===== 深色模式 =====
+    var STORAGE_KEY = 'reader-theme';
+    var DEFAULT_THEME = 'dark';   // ← 預設暗黑
+
+    // 注入 iframe 的深色 CSS
+    var DARK_CSS = [
+      ':root { color-scheme: dark; }',
+      'html, body, .calibre {',
+      '  background-color: #121212 !important;',
+      '  color: #e2e8f0 !important;',
+      '}',
+      'body, p, div, li, td, th, blockquote, h1, h2, h3, h4, h5, h6, span, a {',
+      '  color: #e2e8f0 !important;',
+      '}',
+      'h1, h2, h3, h4, h5, h6 { color: #f8fafc !important; }',
+      'a { color: #7fb3ff !important; }',
+      '.h1 { color: #94a3b8 !important; }',
+      '.h1-none, .h2-name, h3.copybooktitle, .copybooktitle, .con-title, .poem-title {',
+      '  color: #f8fafc !important;',
+      '}',
+      '.ex-text { color: #94a3b8 !important; }',
+      '.kai, .name-kai, .text-fang-song, .work-kai { color: #4ade80 !important; }',
+      '.kai-one { color: #86efac !important; }',
+      '.bible-quote { background-color: transparent !important; color: #93c5fd !important; }',
+      '.calibre2 { color: #334155 !important; border-top-color: #334155 !important; }',
+      '.ppp { background-color: #1e293b !important; border-left: 4px solid #475569 !important; }',
+      '.biao, .biao2, .biao3, .biao4, .biao5 { border-color: #334155 !important; }',
+      '.biao2, .biao4 { background-color: #1e293b !important; color: #f8fafc !important; }',
+      'img { opacity: 0.92; }',
+      '::selection { background: #3a5a8c; color: #fff; }'
+    ].join('\n');
+
+    // 移除 iframe 內的深色 CSS
+    function removeDarkFromFrame() {
+      try {
+        var doc = reader.contentDocument;
+        if (!doc) return;
+        var s = doc.getElementById('__dark_mode__');
+        if (s && s.parentNode) s.parentNode.removeChild(s);
+      } catch (err) { /* 忽略 */ }
+    }
+
+    // 注入深色 CSS 到 iframe
+    function applyDarkToFrame() {
+      try {
+        var doc = reader.contentDocument;
+        if (!doc) return;
+        if (doc.getElementById('__dark_mode__')) return;
+        var style = doc.createElement('style');
+        style.id = '__dark_mode__';
+        style.type = 'text/css';
+        style.appendChild(doc.createTextNode(DARK_CSS));
+        (doc.head || doc.documentElement).appendChild(style);
+      } catch (err) {
+        console.warn('Dark mode injection skipped:', err);
+      }
+    }
+
+    // 依目前主題，決定是否注入
+    function syncFrameTheme() {
+      if (document.documentElement.classList.contains('dark')) {
+        applyDarkToFrame();
+      } else {
+        removeDarkFromFrame();
+      }
+    }
+
+    // 設定主題
+    function setTheme(dark) {
+      document.documentElement.classList.toggle('dark', dark);
+      themeToggle.textContent = dark ? '☀️' : '🌙';
+      themeToggle.setAttribute('aria-label', dark ? '切換亮色模式' : '切換深色模式');
+      try { localStorage.setItem(STORAGE_KEY, dark ? 'dark' : 'light'); } catch (e) {}
+      syncFrameTheme();
+    }
+
+    // 初始主題：預設暗黑；若使用者曾手動切換，才採用儲存值
+    var saved = null;
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+    setTheme(saved ? saved === 'dark' : (DEFAULT_THEME === 'dark'));
+
+    // 切換鈕
+    themeToggle.addEventListener('click', function () {
+      setTheme(!document.documentElement.classList.contains('dark'));
+    });
+
+    // 每次 iframe 換頁都重新套用
+    reader.addEventListener('load', syncFrameTheme);
+    // 首次載入
+    syncFrameTheme();
   })();
 </script>
 
