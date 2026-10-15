@@ -484,3 +484,26 @@ ul.toc-list a:hover {
   padding: 8px;
   border: 1px solid #cbd5e1;
 }
+
+/* ==========================================================================
+   8. 經文出處數字顏色修正 (Bible citation: chapter number matches book name)
+   「創一28」中的數字必須與書卷字同色、同字型、同字重。
+   .turn 僅負責數字等寬，不得改變顏色。
+   ========================================================================== */
+.bible-quote .turn,
+.bible-quote *,
+.turn {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  font-style: inherit !important;
+}
+
+/* 深色模式下，出處數字同樣跟隨書卷字 */
+@media (prefers-color-scheme: dark) {
+  .bible-quote .turn,
+  .bible-quote *,
+  .turn {
+    color: inherit !important;
+  }
+}
